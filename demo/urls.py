@@ -21,7 +21,7 @@ from users import views as user_view
 from django.contrib.auth import views as auth_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('deymotivo/', admin.site.urls),
     path('', include('store.urls')),
     path('register/', user_view.register, name='register'),
     path('login/', auth_view.LoginView.as_view(template_name='users/login.html',redirect_authenticated_user=True), 

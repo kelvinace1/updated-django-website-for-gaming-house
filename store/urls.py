@@ -7,6 +7,13 @@ from .views import (Home,
                     DebtUpdate, DebtDelete,
                     BookCreate, BookList, AdminList,
                     BookDetail, BookUpdate, BookDelete)
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import DebtSitemap, BookingSitemap
+
+sitemaps = {
+    "debts": DebtSitemap,
+    "books":BookingSitemap
+}
 
 urlpatterns = [
     path('', Home.as_view(), name='home'),
@@ -21,6 +28,7 @@ urlpatterns = [
     path('contact/', views.contact, name="contact"),
     path('books/<int:pk>/', BookDetail.as_view(), name='book_detail'),
     path('books/<int:pk>/update/', BookUpdate.as_view(), name='update'),
-    path('books/<int:pk>/delete', BookDelete.as_view(), name='delete')
+    path('books/<int:pk>/delete', BookDelete.as_view(), name='delete'),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     
 ]

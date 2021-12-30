@@ -35,6 +35,7 @@ class Booking(models.Model):
     number =models.IntegerField()
     console = models.CharField(max_length=30, choices=GAME_CHOICE)
     description = models.TextField()
+    date = models.DateTimeField(default=timezone.now)
     booker = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):

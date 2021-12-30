@@ -11,6 +11,7 @@
         <tr>
           <th>Id</th>
           <th>name</th>
+          <th>game</th>
           <th>amount</th>
           <th>paid</th>
           <th>balance</th>
@@ -21,6 +22,7 @@
         <tr>
           <td>{{forloop.counter}}</td>
           <td><a href="{% url 'debt_detail' debt.id %}" class="text-muted">{{debt.name}}</a></td>
+          <td>{{debt.game}}</td>
           <td>₦{{debt.amount}}</td>
           <td>₦{{debt.paid}}</td>
           <td>₦{{debt.balance}}</td>

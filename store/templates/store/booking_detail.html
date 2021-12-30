@@ -1,0 +1,25 @@
+{% extends 'store/base.html' %}
+{% block content %} 
+<div class="">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>number</th>
+          <th>console</th>
+          <th>description</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{object.name}}</td>
+          <td>₦{{object.number}}</td>
+          <td>₦{{object.console}}</td>
+          <td>₦{{object.description}}</td>
+          <td>{{object.date}}</td>
+        </tr>
+        </tbody>
+        </table>
+    
+{% endblock content %}

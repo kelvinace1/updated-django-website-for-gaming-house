@@ -1,7 +1,8 @@
+<meta name="google-site-verification" content="d-F1O0_I3NFBiG11pOVqAYAXVqPDK9dpg7bs9Qf0E4w" />
 {% extends 'store/base.html' %}
 {% block content %} 
 {% if user.is_superuser %}
-<h3 class="text-success">hello {{user.username}}</h3>
+<h4 class="text-muted">Hey {{user.username}}</h4>
 {% else %}
 {% endif %}
 
@@ -82,7 +83,7 @@
      </div>
      <div class="row">
          <div class="your-contact-button col">
-             <a href="https://wa.me/09053116324" class="your-btn-primary btn btn-primary btn-lg rounded-pill mb-4" role="button">Contact Us</a>
+             <a href="{% url 'contact' %}" class="your-btn-primary btn btn-primary btn-lg rounded-pill mb-4" role="button">Contact Us</a>
          </div>
      </div>
  </section>

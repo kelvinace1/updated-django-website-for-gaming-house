@@ -1,0 +1,16 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %} 
+<div class="">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Contact us</legend>
+            <input type="email" label="from" name="from" /> <br>
+            <input type="text" label="to" name="subject"> <br>
+            <input type="textarea" label="message" name="message">
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock content %}
+</div>

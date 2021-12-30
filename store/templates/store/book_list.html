@@ -1,0 +1,36 @@
+{% extends 'store/base.html' %}
+{% block content %} 
+
+
+<div></div>
+<div></div>
+<div></div>
+<div class="">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>name</th>
+          <th>number</th>
+          <th>console</th>
+          <th>description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          {% if request.user == book.booker %}
+          <td>{{forloop.counter}}</td>
+          <td>{{book.name}}</td>
+          <td>{{book.number}}</td>
+          <td>{{book.console}}</td>
+          <td>{{book.description}}</td>
+        </tr>
+        {% endif %}
+{% endfor %}
+
+    </table>
+    
+    <h2>you have {{bookings}} pending repair booked</h2>
+
+{% endblock content %}

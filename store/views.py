@@ -22,8 +22,8 @@ class DebtDetail(LoginRequiredMixin, DetailView):
 
 class DebtCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Debt
-    fields = ['name', 'game', 'amount', 'paid', 'balance', 'date']
-    success_message = "successfully created"
+    fields = ['name', 'game', 'amount', 'paid', 'balance']
+    success_message = "New debt record has been successfully created"
 
     def form_valid(self, form):
         form.instance.keeper = self.request.user
@@ -31,8 +31,8 @@ class DebtCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class DebtUpdate(LoginRequiredMixin, UserPassesTestMixin ,SuccessMessageMixin, UpdateView):
      model = Debt
-     fields = ['name', 'amount', 'paid', 'balance', 'date']
-     success_message = "successfully updated"
+     fields = ['name', 'amount', 'paid', 'balance']
+     success_message = "Debt record has been successfully updated"
 
      def form_valid(self, form):
         form.instance.keeper = self.request.user
@@ -47,7 +47,7 @@ class DebtUpdate(LoginRequiredMixin, UserPassesTestMixin ,SuccessMessageMixin, U
 class DebtDelete(LoginRequiredMixin,UserPassesTestMixin,SuccessMessageMixin, DeleteView):
     model = Debt
     success_url = '/'
-    success_message = "successfully deleted"
+    success_message = "Debt record has been successfully deleted"
 
     def test_func(self):
         debt = self.get_object()
